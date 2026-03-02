@@ -1,0 +1,6 @@
+@import "tailwindcss";
+
+#root {
+  @apply max-w-2xl my-0 mx-auto p-4 text-center flex justify-center flex-col;
+}
+

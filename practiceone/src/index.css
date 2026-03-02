@@ -1,0 +1,19 @@
+@import "tailwindcss";
+.container {
+  @apply flex gap-5 justify-center mt-12;
+}
+
+/* Card */
+.card {
+  @apply w-62.5 p-5 text-center rounded-xl shadow-lg bg-white cursor-pointer;
+}
+
+/* Profile Image */
+.profile-img {
+  @apply w-25 h-25 rounded-full object-cover mx-auto;
+}
+
+/* Follow Button */
+.follow-btn {
+  @apply mt-2.5 px-4 py-2 rounded-full bg-blue-500 text-white cursor-pointer hover:bg-blue-700 transition-colors duration-300;
+}
