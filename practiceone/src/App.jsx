@@ -2,7 +2,7 @@ import React from "react";
 import ProfileCard from "./component/ProfileCard";
 import profiles from "../data";
 import "./App.css";
-// profilecard creation using dummy data from data.js
+// React Basics & JSX
 function App() {
   return (
     <div className="container">

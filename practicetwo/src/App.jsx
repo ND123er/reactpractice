@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ProfileCard from "./component/ProfileCard";
 import "./App.css";
-//profile card creation calling API
+//useEffect & API Calls
 function App() {
   const [users, setUsers] = useState([]);
 

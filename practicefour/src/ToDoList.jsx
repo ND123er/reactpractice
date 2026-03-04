@@ -1,0 +1,77 @@
+import React, {useState} from 'react'
+ function ToDoList(){
+ const [input, setInput] = useState("");
+  const [todos, setTodos] = useState([]);
+
+  const addTodo = () => {
+    if (input.trim() === "") return;
+
+    const newTodo = {
+      id: Date.now(),
+      text: input
+    };
+
+    setTodos([...todos, newTodo]);
+    setInput("");
+  };
+
+  const deleteTodo = (id) => {
+    setTodos(todos.filter(todo => todo.id !== id));
+  };
+
+  const moveUp = (index) => {
+    if (index === 0) return;
+
+    const newTodos = [...todos];
+    [newTodos[index - 1], newTodos[index]] =
+      [newTodos[index], newTodos[index - 1]];
+
+    setTodos(newTodos);
+  };
+
+  const moveDown = (index) => {
+    if (index === todos.length - 1) return;
+
+    const newTodos = [...todos];
+    [newTodos[index + 1], newTodos[index]] =
+      [newTodos[index], newTodos[index + 1]];
+
+    setTodos(newTodos);
+  };
+
+  return (
+    <div className="card">
+      <h2>Todo List</h2>
+
+      <input
+        type="text"
+        value={input}
+        onChange={(e) => setInput(e.target.value)}
+        placeholder="Enter task"
+      />
+
+      <button onClick={addTodo} class="add-button">Add</button>
+
+      <ul>
+        {todos.map((todo, index) => (
+          <li key={todo.id}>
+            {todo.text}
+
+            <button onClick={() => deleteTodo(todo.id)} class="delete-button">
+              Delete
+            </button>
+
+            <button onClick={() => moveUp(index)} class="move-button">
+              ☝
+            </button>
+
+            <button onClick={() => moveDown(index)} class="move-button">
+              👇
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+export default ToDoList
