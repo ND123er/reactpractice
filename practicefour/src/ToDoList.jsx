@@ -52,22 +52,23 @@ import React, {useState} from 'react'
 
       <button onClick={addTodo} class="add-button">Add</button>
 
-      <ul>
+      <ul className="todo-list">
         {todos.map((todo, index) => (
           <li key={todo.id}>
             {todo.text}
-
-            <button onClick={() => deleteTodo(todo.id)} class="delete-button">
+             <div>
+            <button onClick={() => deleteTodo(todo.id)} className="delete-button">
               Delete
             </button>
 
-            <button onClick={() => moveUp(index)} class="move-button">
+            <button onClick={() => moveUp(index)} className="move-button">
               ☝
             </button>
 
-            <button onClick={() => moveDown(index)} class="move-button">
+            <button onClick={() => moveDown(index)} className="move-button">
               👇
             </button>
+            </div>
           </li>
         ))}
       </ul>
