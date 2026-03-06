@@ -41,7 +41,7 @@ import React, {useState} from 'react'
 
   return (
     <div className="card">
-      <h2>Todo List</h2>
+      <h2>React Todo List</h2>
 
       <input
         type="text"
