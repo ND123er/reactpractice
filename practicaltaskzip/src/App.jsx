@@ -5,7 +5,6 @@ import TodoApp from '../component/TodoApp'
 import TodoOriginal from '../component/TodoOriginal'
 import TodoFixed from '../component/TodoFixed'
 import Todo from '../component/Todo'
-import Todolist from '../component/Todolist'
 import './App.css'
 
 function App() {
@@ -15,7 +14,6 @@ function App() {
     <>
      <TodoApp/>
      <Todo/>
-     <Todolist/>
     </>
   )
 }
