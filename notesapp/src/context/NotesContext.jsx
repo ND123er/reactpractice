@@ -9,7 +9,7 @@ export function NotesProvider({ children }) {
   });
 
   useEffect(() => {
-    localStorage.setItem('notes', JSON.stringify(notes));
+    localStorage.setItem('main', JSON.stringify(notes));
   }, [notes]);
 
   const addNote = (text) => {
