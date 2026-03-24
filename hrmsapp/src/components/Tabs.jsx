@@ -1,5 +1,7 @@
 import { useState } from "react";
 import Dashboard from "./Dashboard";
+import Announcements from "./Announcements";
+import AnnouncementsNew from "./AnnouncementsNew";
 
 export default function Tabs() {
   const [activeTab, setActiveTab] = useState("dashboard");
@@ -39,7 +41,7 @@ export default function Tabs() {
           <Dashboard />
         ) : (
           <div className="p-4 bg-white rounded-xl shadow">
-            Announcements content here...
+           <AnnouncementsNew />
           </div>
         )}
       </div>
