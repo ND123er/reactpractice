@@ -1,4 +1,7 @@
 @import "tailwindcss";
+#root{
+  @apply bg-[#f4f7fb];
+}
 @keyframes slideIn {
   0% {
     opacity: 0;

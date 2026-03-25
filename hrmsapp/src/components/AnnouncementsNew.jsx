@@ -6,33 +6,70 @@ export default function AnnouncementsNew() {
   const [activeMenu, setActiveMenu] = useState(null);
   const [editingId, setEditingId] = useState(null);
   const [editText, setEditText] = useState("");
-
   const menuRef = useRef();
+const [announcements, setAnnouncements] = useState([]);
+  const [pinCounter, setPinCounter] = useState(0);
 
-  const [announcements, setAnnouncements] = useState([
-    {
-      id: 1,
-      author: "Kumkum Dutta",
-      role: "Hr Intern",
-      content: "Hi rohit",
-      date: "Monday, 16th March, 3:04 pm",
-      pinned: true,
-      pinOrder: 0,
-      visibility: "all",
-    },
-    {
-      id: 2,
-      author: "Kumkum Dutta",
-      role: "Hr Intern",
-      content: "Hii",
-      date: "Thursday, 26th February, 6:08 pm",
-      pinned: true,
-      pinOrder: 1,
-      visibility: "selected",
-    },
-  ]);
+  // ✅ LOAD from localStorage (runs once on mount)
+ useEffect(() => {
+  const saved = localStorage.getItem("announcements");
+  if (saved) {
+    setAnnouncements(JSON.parse(saved));
+  } else {
+    setAnnouncements([
+      {
+        id: 1,
+        author: "Kumkum Dutta",
+        role: "Hr Intern",
+        content: "Hi rohit",
+        date: "Monday...",
+        pinned: true,
+        pinOrder: 0,
+        visibility: "all",
+      },
+    ]);
+  }
+}, []);
 
-  const [pinCounter, setPinCounter] = useState(2);
+  // ✅ SAVE to localStorage (runs whenever announcements change)
+  useEffect(() => {
+    localStorage.setItem("announcements", JSON.stringify(announcements));
+  }, [announcements]);
+
+  // (optional) persist pinCounter
+  useEffect(() => {
+    const savedCounter = localStorage.getItem("pinCounter");
+    if (savedCounter) {
+      setPinCounter(Number(savedCounter));
+    }
+  }, []);
+
+  useEffect(() => {
+    localStorage.setItem("pinCounter", pinCounter);
+  }, [pinCounter]);
+  // const [announcements, setAnnouncements] = useState([
+  //   {
+  //     id: 1,
+  //     author: "Kumkum Dutta",
+  //     role: "Hr Intern",
+  //     content: "Hi rohit",
+  //     date: "Monday, 16th March, 3:04 pm",
+  //     pinned: true,
+  //     pinOrder: 0,
+  //     visibility: "all",
+  //   },
+  //   {
+  //     id: 2,
+  //     author: "Kumkum Dutta",
+  //     role: "Hr Intern",
+  //     content: "Hii",
+  //     date: "Thursday, 26th February, 6:08 pm",
+  //     pinned: true,
+  //     pinOrder: 1,
+  //     visibility: "selected",
+  //   },
+  // ]);
+
 
   // close menu on outside click
   useEffect(() => {
@@ -59,7 +96,7 @@ export default function AnnouncementsNew() {
       visibility: "all",
     };
 
-    setAnnouncements([newItem, ...announcements]);
+   setAnnouncements((prev) => [newItem, ...prev]);
     setText("");
   };
 

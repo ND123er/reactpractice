@@ -4,36 +4,38 @@ import HeadcountChart from "./HeadcountChart";
 import Tabs from "./Tabs";
 export default function Rightpanel() {
   return (
-    <div className="flex h-screen bg-gray-100 overflow-hidden">
+    <div className="flex h-screen overflow-hidden p-4 gap-3 bg-[#f4f7fb]">
       {/* Sidebar */}
-      <aside className="hidden md:flex flex-col w-64 bg-white border-r p-4">
-        <div className="text-2xl font-bold mb-6 border border-[#cccccc] rounded-[14px] p-4">
-          HRM<span className="text-red-500">Snap</span>
+      <aside className="hidden md:flex flex-col basis-85 bg-[#f4f7fb]">
+        <div className="flex justify-center items-center text-2xl font-bold mb-6 border border-[#cccccc] rounded-[14px] p-4 bg-white h-17.5">
+          <img src="../src/assets/nav_logo.png" alt="" className="max-h-12" />
         </div>
 
-        <nav className="flex flex-col gap-2">
-          <SidebarItem label="Home" active />
-          <SidebarItem label="Employees" />
-          <SidebarItem label="Inbox" />
-          <SidebarItem label="Attendance Tracker" />
-          <SidebarItem label="Leave Tracker" />
-          <SidebarItem label="Performance Management" />
-          <SidebarItem label="Assets" />
-          <SidebarItem label="Payroll" />
-          <SidebarItem label="Reports" />
+        <nav className="flex flex-col gap-2 bg-white p-4 border border-[#cccccc] rounded-[14px]">
+          <button>more</button>
+          <SidebarItem label="Home" active icon="../src/assets/download.svg"/>
+          <SidebarItem label="Employees" icon="../src/assets/2.svg"/>
+          <SidebarItem label="Inbox" icon="../src/assets/3.svg"/>
+          <SidebarItem label="Attendance Tracker" icon="../src/assets/4.svg"/>
+          <SidebarItem label="Leave Tracker" icon="../src/assets/5.svg"/>
+          <SidebarItem label="Performance Management" icon="../src/assets/6.svg"/>
+          <SidebarItem label="Assets" icon="../src/assets/7.svg"/>
+          <SidebarItem label="Payroll" icon="../src/assets/8.svg"/>
+          <SidebarItem label="Reports" icon="../src/assets/9.svg"/>
+          <div className="mt-auto pt-6 border-t">
+          <SidebarItem label="Settings" icon="../src/assets/2.svg"/>
+          <SidebarItem label="Help" icon="../src/assets/2.svg"/>
+          <SidebarItem label="Log Out" icon="../src/assets/2.svg"/>
+        </div>
         </nav>
 
-        <div className="mt-auto pt-6 border-t">
-          <SidebarItem label="Settings" />
-          <SidebarItem label="Help" />
-          <SidebarItem label="Log Out" />
-        </div>
+        
       </aside>
 
       {/* Main */}
-      <div className="flex-1 flex flex-col">
+      <div className="flex-1 flex flex-col bg-[#f4f7fb]">
         {/* Header */}
-        <header className="bg-white border-b p-4 flex justify-between items-center">
+        <header className="bg-white border p-4 flex justify-between items-center border-[#cccccc] rounded-[14px] h-17.5!">
           <h1 className="text-lg font-semibold">
             Welcome, <span className="font-bold">Kumkum</span>
           </h1>
@@ -74,16 +76,19 @@ export default function Rightpanel() {
 
 /* Reusable Components */
 
-function SidebarItem({ label, active }) {
+function SidebarItem({ label,icon, active }) {
   return (
     <div
-      className={`px-3 py-2 rounded-lg cursor-pointer text-sm ${
+      className={`py-3 pl-[48px] pr-3 rounded-lg cursor-pointer text-sm ${
         active
           ? "bg-blue-900 text-white"
           : "text-gray-700 hover:bg-gray-100"
       }`}
     >
+      <div className="flex gap-[10px] items-center">
+      <img src={icon} alt={label} className="" />
       {label}
+      </div>
     </div>
   );
 }

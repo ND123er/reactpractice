@@ -4,7 +4,7 @@ import HeadcountChart from "./HeadcountChart";
 import StatsGrid from "./StatsGrid";
 export default function Dashboard() {
   return (
-    <div className="flex flex-col bg-gray-100 p-4">
+    <div className="flex flex-col p-4 bg-[#f4f7fb]">
       {/* Main */}
       <StatsGrid/>
       <div className="flex-1 flex flex-col pt-[20px]">
