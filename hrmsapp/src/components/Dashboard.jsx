@@ -26,7 +26,7 @@ export default function Dashboard() {
             <Card title="Pending Leave Approvals">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 bg-purple-500 text-white flex items-center justify-center rounded-lg">
+                  <div className="w-10 h-10 bg-purple-500 text-white flex items-center justify-center">
                     RO
                   </div>
                   <div>
@@ -71,7 +71,7 @@ export default function Dashboard() {
             <Calendar />
 
             {/* Event Card */}
-            <div className="bg-white p-4 rounded-xl border flex items-center gap-3">
+            <div className="bg-white p-4 flex items-center gap-3 bordered-block">
               <div className="w-10 h-10 bg-blue-900 text-white flex items-center justify-center rounded-full">
                 I
               </div>
@@ -107,7 +107,7 @@ function SidebarItem({ label, active }) {
 
 function Card({ title, children }) {
   return (
-    <div className="bg-white p-4 rounded-xl border">
+    <div className="bg-white p-4 bordered-block">
       <div className="flex justify-between mb-3">
         <h2 className="font-semibold">{title}</h2>
         <button className="text-xs border px-2 py-1 rounded">

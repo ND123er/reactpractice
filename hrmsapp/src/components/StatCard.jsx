@@ -7,7 +7,7 @@ export default function StatCard({
   changeText,
 }) {
   return (
-    <div className="bg-white rounded-xl shadow p-4">
+    <div className="bg-white rounded-xl shadow p-4 bordered-block">
       
       {/* Top */}
       <div className="flex items-center gap-2 mb-4">

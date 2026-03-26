@@ -38,7 +38,7 @@ export default function Calendar() {
   });
 
   return (
-    <div className="bg-white rounded-xl shadow p-4">
+    <div className="bg-white p-4 bordered-block">
       <h2 className="font-semibold text-lg mb-2">Events</h2>
 
       {/* Month Header */}
