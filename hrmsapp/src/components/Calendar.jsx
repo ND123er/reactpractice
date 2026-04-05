@@ -39,7 +39,7 @@ export default function Calendar() {
 
   return (
     <div className="bg-white p-4 bordered-block">
-      <h2 className="font-semibold text-lg mb-2">Events</h2>
+      <h2 className="card-heading">Events</h2>
 
       {/* Month Header */}
       <div className="flex justify-between items-center mb-4">

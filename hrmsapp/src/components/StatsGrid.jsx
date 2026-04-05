@@ -7,8 +7,8 @@ export default function StatsGrid() {
       
       <StatCard
         icon={<Users size={20} />}
-        title="Total Employees"
-        value="111"
+        title="New Joiners"
+        value="11"
         changeIcon={<ArrowUp size={16} className="text-green-500" />}
         change="+12%"
         changeText="vs last month"
@@ -16,8 +16,8 @@ export default function StatsGrid() {
 
       <StatCard
         icon={<Users size={20} />}
-        title="New Joiners"
-        value="15"
+        title="Attendance (Today)"
+        value="0"
         changeIcon={<ArrowUp size={16} className="text-green-500" />}
         change="+5%"
         changeText="growth"
@@ -25,8 +25,8 @@ export default function StatsGrid() {
 
       <StatCard
         icon={<Users size={20} />}
-        title="Resigned"
-        value="3"
+        title="Employee Strength"
+        value="118"
         changeIcon={<ArrowDown size={16} className="text-red-500" />}
         change="-2%"
         changeText="decline"

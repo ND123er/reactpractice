@@ -5,9 +5,11 @@
   --font-primary: 'Poppins', sans-serif;
 }
 
+body {
+  font-family: var(--font-primary);
+}
 #root {
   @apply bg-[#f4f7fb];
-  @apply 
 }
 
 @keyframes slideIn {
@@ -33,4 +35,17 @@
 
 .bordered-block {
   @apply border border-[#cccccc] rounded-[14px] bg-white;
+}
+.tab-title{
+  @apply text-[13.6px] font-semibold;
+}
+
+.card-num{
+  @apply font-medium text-[54.12px] leading-[100%] tracking-[-0.03em] text-[#1A202C];
+}
+.card-title{
+  @apply font-semibold text-[18px] leading-[100%] tracking-[-0.03em] text-[#1A202C];
+}
+.card-heading{
+  @apply font-semibold text-[20px] leading-[100%] tracking-[-0.03em] text-black;
 }

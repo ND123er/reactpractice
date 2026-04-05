@@ -7,19 +7,19 @@ export default function StatCard({
   changeText,
 }) {
   return (
-    <div className="bg-white rounded-xl shadow p-4 bordered-block">
+    <div className="flex flex-col justify-between bg-white rounded-xl shadow pt-[24px] pr-[8px] pb-[12px] pl-[16px] bordered-block min-h-[163px]">
       
       {/* Top */}
-      <div className="flex items-center gap-2 mb-4">
+      <div className="flex items-center gap-2 pb-[36px]">
         <div className="text-blue-600 text-xl">{icon}</div>
-        <h3 className="font-medium text-gray-700">{title}</h3>
+        <h3 className="card-title">{title}</h3>
       </div>
 
       {/* Bottom */}
       <div className="flex justify-between items-end">
         
         {/* Left (Number) */}
-        <span className="text-2xl font-bold">{value}</span>
+        <span className="card-num">{value}</span>
 
         {/* Right (Change Info) */}
         <div className="flex items-center gap-1 text-sm">

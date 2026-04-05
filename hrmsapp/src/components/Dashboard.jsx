@@ -109,7 +109,7 @@ function Card({ title, children }) {
   return (
     <div className="bg-white p-4 bordered-block">
       <div className="flex justify-between mb-3">
-        <h2 className="font-semibold">{title}</h2>
+        <h2 className="card-title">{title}</h2>
         <button className="text-xs border px-2 py-1 rounded">
           This Month
         </button>
