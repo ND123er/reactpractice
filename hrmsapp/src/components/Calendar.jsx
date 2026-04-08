@@ -38,9 +38,11 @@ export default function Calendar() {
   });
 
   return (
-    <div className="bg-white p-4 bordered-block">
+    <div className="bg-white bordered-block">
+      <div className="relative flex items-center justify-between mb-3 px-[16px] py-[24px] min-h-[80px]">
       <h2 className="card-heading">Events</h2>
-
+      <div className="divider-block"></div>
+      </div>
       {/* Month Header */}
       <div className="flex justify-between items-center mb-4">
         <span className="font-medium">
@@ -64,9 +66,9 @@ export default function Calendar() {
       </div>
 
       {/* Navigation */}
-      <div className="flex justify-center gap-4 mt-4">
-        <button onClick={prevMonth}>◀</button>
-        <button onClick={nextMonth}>▶</button>
+      <div className="flex justify-center gap-12.5 text-[23px] font-semibold mt-4">
+        <button onClick={prevMonth}>‹</button>
+        <button onClick={nextMonth}>›</button>
       </div>
 
       <p className="text-center text-gray-400 text-sm mt-2">

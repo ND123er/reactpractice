@@ -9,7 +9,7 @@ export default function Tabs() {
   return (
     <div className="relative overflow-y-scroll no-scrollbar bg-[#f4f7fb] z-20">
       {/* Tabs */}
-      <div className=" p-4 sticky top-0 inset-x-0 z-10 bg-[#f4f7fb]">
+      <div className="pl-0 p-[12px] sticky top-0 inset-x-0 z-10 bg-[#f4f7fb]">
       <div className="flex bg-[#274066] rounded-[14px] p-2 gap-2">
         <button
           onClick={() => setActiveTab("dashboard")}
@@ -38,7 +38,7 @@ export default function Tabs() {
       </div>
 
       {/* Content */}
-      <div className=" px-4 mt-4 bg-[#f4f7fb]">
+      <div className="bg-[#f4f7fb]">
         {activeTab === "dashboard" ? (
           <Dashboard />
         ) : (

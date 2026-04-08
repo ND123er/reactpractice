@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main-content {
+            margin-left: 240px;
+            transition: margin-left 0.3s ease;
+        }
+
+        .sidebar.collapsed+.main-content {
+            margin-left: 70px;
+        }
+
+        .sidebar {
+            width: 240px;
+            transition: width 0.3s ease;
+            background: #1f2a44;
+            color: white;
+            overflow: hidden;
+        }
+
+        .sidebar.collapsed {
+            width: 70px;
+        }
+
+        /* Hide text when collapsed */
+        .sidebar.collapsed span {
+            display: none;
+        }
+
+        /* Align icons center when collapsed */
+        .sidebar.collapsed li {
+            justify-content: center;
+        }
+
+        /* Menu items */
+        .sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .sidebar li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            cursor: pointer;
+        }
+
+        /* Optional: icon size */
+        .sidebar i {
+            font-size: 18px;
+            min-width: 24px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="layout">
+
+        <div id="sidebar" class="sidebar">
+            <button id="toggleBtn" class="toggle-btn">☰</button>
+
+            <ul>
+                <li><i class="icon-home"></i><span>Home</span></li>
+                <li><i class="icon-user"></i><span>Employees</span></li>
+                <li><i class="icon-mail"></i><span>Inbox</span></li>
+                <li><i class="icon-clock"></i><span>Attendance</span></li>
+            </ul>
+        </div>
+
+        <div class="main-content">
+            <!-- your dashboard -->
+        </div>
+
+    </div>
+    <script>
+        const toggleBtn = document.getElementById("toggleBtn");
+        const sidebar = document.getElementById("sidebar");
+
+        toggleBtn.addEventListener("click", () => {
+            sidebar.classList.toggle("collapsed");
+        });
+    </script>
+</body>
+
+</html>

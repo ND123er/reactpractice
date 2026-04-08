@@ -98,7 +98,7 @@ function Card({ title, children }) {
     <div className="bg-white p-4 rounded-xl border">
       <div className="flex justify-between mb-3">
         <h2 className="font-semibold">{title}</h2>
-        <button className="text-xs border px-2 py-1 rounded">
+        <button className="text-xs border border-[#E2E8F0] px-2 py-1 rounded">
           This Month
         </button>
       </div>
