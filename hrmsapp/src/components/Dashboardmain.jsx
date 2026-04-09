@@ -6,7 +6,6 @@ import DropdownExample from "./DropdownExample";
 export default function Dashboard() {
   return (
     <div className="flex flex-col bg-[#f4f7fb]">
-       
       {/* Main */}
       <StatsGrid/>
       <div className="flex-1 flex flex-col pt-[20px]">
@@ -72,7 +71,7 @@ export default function Dashboard() {
             <Calendar />
 
             {/* Event Card */}
-            {/* <div className="bg-white p-4 flex items-center gap-3 bordered-block">
+            <div className="bg-white p-4 flex items-center gap-3 bordered-block">
               <div className="w-10 h-10 bg-blue-900 text-white flex items-center justify-center rounded-full">
                 I
               </div>
@@ -82,7 +81,7 @@ export default function Dashboard() {
                   Mar 16, 2026 • Monday
                 </p>
               </div>
-            </div> */}
+            </div>
           </div>
         </main>
       </div>

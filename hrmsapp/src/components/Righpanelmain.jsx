@@ -2,20 +2,20 @@ import React from "react";
 import Calendar from "./Calendar";
 import HeadcountChart from "./HeadcountChart";
 import Tabs from "./Tabs";
-import Bottomgrid from "./bottomgrid";
 import { useState } from "react";
 export default function Rightpanel() {
+  const [collapsed, setCollapsed] = useState(false);
   return (
     <div
-      
-    >
-      {/* Sidebar */}
-      <div className="
+      className="
         flex overflow-hidden
+        h-screen
         p-4
         bg-[#f4f7fb]
         gap-3
-      ">
+      "
+    >
+      {/* Sidebar */}
       <aside
         className="
           hidden flex-col
@@ -28,7 +28,7 @@ export default function Rightpanel() {
           className="
             flex
             h-17.5
-            p-4
+            mb-6 p-4
             text-2xl font-bold
             bg-white
             border border-[#cccccc] rounded-[14px]
@@ -44,11 +44,119 @@ export default function Rightpanel() {
           />
         </div>
 
-      
+        {/* <nav className="flex flex-col gap-2 bg-white p-4 border border-[#cccccc] rounded-[14px]">
+          <button>more</button>
+          <SidebarItem label="Home" active icon="../src/assets/download.svg"/>
+          <SidebarItem label="Employees" icon="../src/assets/2.svg"/>
+          <SidebarItem label="Inbox" icon="../src/assets/3.svg"/>
+          <SidebarItem label="Attendance Tracker" icon="../src/assets/4.svg"/>
+          <SidebarItem label="Leave Tracker" icon="../src/assets/5.svg"/>
+          <SidebarItem label="Performance Management" icon="../src/assets/6.svg"/>
+          <SidebarItem label="Assets" icon="../src/assets/7.svg"/>
+          <SidebarItem label="Payroll" icon="../src/assets/8.svg"/>
+          <SidebarItem label="Reports" icon="../src/assets/9.svg"/>
+          <div className="mt-auto pt-6 border-t">
+          <SidebarItem label="Settings" icon="../src/assets/2.svg"/>
+          <SidebarItem label="Help" icon="../src/assets/2.svg"/>
+          <SidebarItem label="Log Out" icon="../src/assets/2.svg"/>
+        </div>
+        </nav> */}
+        <nav
+          className={`
+      flex flex-col
+      p-4
+      bg-white
+      border border-[#cccccc] rounded-[14px]
+      transition-all
+      gap-2 duration-300
+      ${collapsed ? "w-[80px]" : "w-full"}
+    `}
+        >
+          <button onClick={() => setCollapsed(!collapsed)}>more</button>
+
+          <SidebarItem
+            collapsed={collapsed}
+            label="Home"
+            active
+            icon="../src/assets/download.svg"
+          />
+          <SidebarItem
+            collapsed={collapsed}
+            label="Employees"
+            icon="../src/assets/2.svg"
+          />
+          <SidebarItem
+            collapsed={collapsed}
+            label="Inbox"
+            icon="../src/assets/3.svg"
+          />
+          <SidebarItem
+            collapsed={collapsed}
+            label="Attendance Tracker"
+            icon="../src/assets/4.svg"
+          />
+          <SidebarItem
+            collapsed={collapsed}
+            label="Leave Tracker"
+            icon="../src/assets/5.svg"
+          />
+          <SidebarItem
+            collapsed={collapsed}
+            label="Performance Management"
+            icon="../src/assets/6.svg"
+          />
+          <SidebarItem
+            collapsed={collapsed}
+            label="Assets"
+            icon="../src/assets/7.svg"
+          />
+          <SidebarItem
+            collapsed={collapsed}
+            label="Payroll"
+            icon="../src/assets/8.svg"
+          />
+          <SidebarItem
+            collapsed={collapsed}
+            label="Reports"
+            icon="../src/assets/9.svg"
+          />
+
+          <div
+            className="
+      mt-auto pt-6
+      border-t
+    "
+          >
+            <SidebarItem
+              collapsed={collapsed}
+              label="Settings"
+              icon="../src/assets/2.svg"
+            />
+            <SidebarItem
+              collapsed={collapsed}
+              label="Help"
+              icon="../src/assets/2.svg"
+            />
+            <SidebarItem
+              collapsed={collapsed}
+              label="Log Out"
+              icon="../src/assets/2.svg"
+            />
+          </div>
+        </nav>
       </aside>
-       <header
+
+      {/* Main */}
+      <div
+        className="
+          flex-1 flex flex-col
+          bg-[#f4f7fb]
+        "
+      >
+        {/* Header */}
+        <header
           className="
-            flex flex-1
+            flex
             h-17.5!
             p-4
             bg-white
@@ -81,10 +189,10 @@ export default function Rightpanel() {
               type="text"
               placeholder="Search"
               className="
-                min-w-87.5 min-h-[40px]
+                min-w-87.5
                 px-3 py-1
                 text-sm
-                border border-[#e2e8f0] rounded-lg
+                border rounded-lg
               "
             />
             <button
@@ -119,17 +227,19 @@ export default function Rightpanel() {
             </div>
           </div>
         </header>
-        </div>
-  <div className="flex gap-3 p-4 pt-0 h-screen">
-    <Bottomgrid/>
-      <div
-        className="
-          flex-1 flex flex-col
-          bg-[#f4f7fb]
-        "
-      >
+
+        {/* Tabs */}
+        {/* <div className="p-4">
+          <div className="flex bg-blue-900 rounded-xl overflow-hidden">
+            <button className="flex-1 bg-white text-black py-2 font-medium">
+              Dashboard
+            </button>
+            <button className="flex-1 text-white py-2">
+              Announcements
+            </button>
+          </div>
+        </div> */}
         <Tabs />
-      </div>
       </div>
     </div>
   );

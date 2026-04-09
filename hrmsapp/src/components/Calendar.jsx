@@ -51,7 +51,7 @@ export default function Calendar() {
       </div>
 
       {/* Days */}
-      <div className="grid grid-cols-7 text-sm text-gray-500 mb-2">
+      <div className="w-full p-[8px] grid grid-cols-7 text-sm text-gray-500 mb-2">
         {["Mon","Tue","Wed","Thu","Fri","Sat","Sun"].map((d) => (
           <div key={d}>{d}</div>
         ))}
@@ -59,7 +59,7 @@ export default function Calendar() {
 
       <div className="grid grid-cols-7 gap-y-2 text-sm">
         {generateDays().map((day, i) => (
-          <div key={i} className="text-center py-1">
+          <div key={i} className="min-h-[57px] flex justify-center items-center">
             {day || ""}
           </div>
         ))}
