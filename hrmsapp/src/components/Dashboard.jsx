@@ -39,10 +39,10 @@ export default function Dashboard() {
                 </div>
 
                 <div className="flex gap-2">
-                  <button className="px-3 py-1 border border-red-300 text-red-500 rounded-md">
+                  <button className="p-[20px] border h-[32px] border-[#EE5D5080] text-[#4B4A4A] rounded-[8px] bg-[#EE5D5033] flex justify-center items-center">
                     Reject
                   </button>
-                  <button className="px-3 py-1 border border-green-400 text-green-600 rounded-md">
+                  <button className="p-[20px] h-[32px] border border-[#06BF5C] bg-[#d5edd8] text-[#4B4A4A] rounded-[8px] flex justify-center items-center">
                     Approve
                   </button>
                 </div>

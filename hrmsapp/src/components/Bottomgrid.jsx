@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 export default function Bottomgrid() {
         const [collapsed, setCollapsed] = useState(false);
   return (
@@ -113,7 +114,8 @@ export default function Bottomgrid() {
       h-full
     "
   >
-    <button onClick={() => setCollapsed(!collapsed)}>more</button>
+    <button onClick={() => setCollapsed(!collapsed)} className="flex justify-end"><span><FaChevronLeft /></span>
+    </button>
 
     <SidebarItem collapsed={collapsed} label="Home" active icon="../src/assets/download.svg" />
     <SidebarItem collapsed={collapsed} label="Employees" icon="../src/assets/2.svg" />
