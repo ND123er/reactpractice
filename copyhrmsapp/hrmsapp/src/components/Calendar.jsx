@@ -38,20 +38,18 @@ export default function Calendar() {
   });
 
   return (
-    <div className="bg-white bordered-block">
-      <div className="relative flex items-center justify-between mb-3 px-[16px] py-[24px] min-h-[80px]">
+    <div className="bg-white p-4 bordered-block">
       <h2 className="card-heading">Events</h2>
-      <div className="divider-block"></div>
-      </div>
+
       {/* Month Header */}
-      <div className="flex justify-between items-center mb-4 px-[16px]">
+      <div className="flex justify-between items-center mb-4">
         <span className="font-medium">
           {monthName} {year}
         </span>
       </div>
 
       {/* Days */}
-      <div className="w-full p-[8px] grid grid-cols-7 text-sm text-gray-500 mb-2">
+      <div className="grid grid-cols-7 text-sm text-gray-500 mb-2">
         {["Mon","Tue","Wed","Thu","Fri","Sat","Sun"].map((d) => (
           <div key={d}>{d}</div>
         ))}
@@ -59,16 +57,16 @@ export default function Calendar() {
 
       <div className="grid grid-cols-7 gap-y-2 text-sm">
         {generateDays().map((day, i) => (
-          <div key={i} className="min-h-[57px] flex justify-center items-center">
+          <div key={i} className="text-center py-1">
             {day || ""}
           </div>
         ))}
       </div>
 
       {/* Navigation */}
-      <div className="flex justify-center gap-12.5 text-[23px] font-semibold mt-4">
-        <button onClick={prevMonth}>‹</button>
-        <button onClick={nextMonth}>›</button>
+      <div className="flex justify-center gap-4 mt-4">
+        <button onClick={prevMonth}>◀</button>
+        <button onClick={nextMonth}>▶</button>
       </div>
 
       <p className="text-center text-gray-400 text-sm mt-2">
