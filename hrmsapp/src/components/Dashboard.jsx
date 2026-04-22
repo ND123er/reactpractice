@@ -3,6 +3,7 @@ import Calendar from "./Calendar";
 import HeadcountChart from "./HeadcountChart";
 import StatsGrid from "./StatsGrid";
 import DropdownExample from "./DropdownExample";
+import PendingApprovals from "./PendingApprovals";
 export default function Dashboard() {
   return (
     <div className="flex flex-col bg-[#f4f7fb]">
@@ -24,7 +25,7 @@ export default function Dashboard() {
             </Card>
 
             {/* Pending Approvals */}
-            <PendingCard title="Pending Leave Approvals">
+            {/* <PendingCard title="Pending Leave Approvals">
               <div className="flex items-center justify-between  p-4 border border-[#E2E8F0] bg-white rounded-xl">
                 <div className="flex items-center gap-3">
                   <div className="w-12 h-12 bg-[#c22bc2] text-white flex items-center justify-center rounded-lg">
@@ -47,7 +48,8 @@ export default function Dashboard() {
                   </button>
                 </div>
               </div>
-            </PendingCard>
+            </PendingCard> */}
+            <PendingApprovals/>
           </div>
 
           {/* Right */}
