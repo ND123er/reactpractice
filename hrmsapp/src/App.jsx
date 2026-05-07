@@ -9,8 +9,8 @@ import './App.css'
 function App() {
   return (
     <>
-     {/* <LoginPage /> */}
-     <Rightpanel />
+     <LoginPage />
+     {/* <Rightpanel /> */}
     </>
   )
 }
