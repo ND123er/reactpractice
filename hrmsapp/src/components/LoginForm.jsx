@@ -9,22 +9,6 @@ export default function LoginForm() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  const decodeJwt = (token) => {
-    try {
-      const base64Url = token.split(".")[1];
-      const base64 = base64Url.replace(/-/g, "+").replace(/_/g, "/");
-      const jsonPayload = decodeURIComponent(
-        atob(base64)
-          .split("")
-          .map((c) => "%" + ("00" + c.charCodeAt(0).toString(16)).slice(-2))
-          .join("")
-      );
-      return JSON.parse(jsonPayload);
-    } catch {
-      return {};
-    }
-  };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
@@ -41,13 +25,9 @@ export default function LoginForm() {
       // store token
       localStorage.setItem("token", result.token);
 
-      const decoded = decodeJwt(result.token);
-      const isOrgPresent = decoded?.is_org_present ?? false;
-      const isAdmin = decoded?.is_admin ?? false;
+      // go to dashboard (ProtectedRoute will validate admin)
+      navigate("/dashboard", { replace: true });
 
-      if (isOrgPresent) navigate("/dashboard");
-      else if (isAdmin) navigate("/orgRegister");
-      else navigate("/dashboard");
     } catch (err) {
       setError(err.message || "Login failed");
     } finally {
@@ -56,33 +36,55 @@ export default function LoginForm() {
   };
 
   return (
-    <div style={{ maxWidth: "400px", margin: "50px auto" }}>
-      <h2>Login</h2>
+    <div>
+       <h1 className="text-3xl font-bold mb-2">Welcome!</h1>
+      <p className="text-gray-500 mb-6">
+        Let's discover the HR solutions in a Snap.
+      </p>
+
       {error && <p style={{ color: "red" }}>{error}</p>}
+
       <form onSubmit={handleSubmit}>
-        <div>
-          <label>Email</label><br />
+        <div className="mb-4">
+          <label className="block text-sm mb-1">Email</label>
           <input
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
+            placeholder="Enter your email"
+          className="w-full border border-[#D0D5DD] rounded-lg p-3 focus:outline-none focus:ring-2 focus:ring-blue-400"
             required
-            style={{ width: "100%", padding: "8px", marginBottom: "10px" }}
           />
         </div>
+
         <div>
-          <label>Password</label><br />
+          <label>Password</label>
+          <br />
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
+            placeholder="Enter your Password"
+            className="w-full border border-[#D0D5DD] rounded-lg p-3 pr-10 focus:outline-none focus:ring-2 focus:ring-blue-400"
+
             required
-            style={{ width: "100%", padding: "8px", marginBottom: "10px" }}
           />
         </div>
-        <button type="submit" disabled={loading}>
-          {loading ? "Logging in..." : "Login"}
+        <div className="flex items-center justify-between mb-6 text-sm pt-4">
+        <label className="flex items-center gap-2">
+          <input type="checkbox" />
+          Remember me
+        </label>
+        <a href="#" className="text-blue-500">
+          Forgot Password?
+        </a>
+      </div>
+
+ <div className="flex justify-end">
+        <button type="submit" disabled={loading} className="w-full bg-gray-400 text-white py-3 rounded-lg max-w-[90px] self-end">
+          {loading ? "Logging in..." : "Log In →"}
         </button>
+        </div>
       </form>
     </div>
   );

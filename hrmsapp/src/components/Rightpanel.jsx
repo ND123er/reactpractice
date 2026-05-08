@@ -1,10 +1,18 @@
 import React from "react";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Calendar from "./Calendar";
 import HeadcountChart from "./HeadcountChart";
 import Tabs from "./Tabs";
 import Bottomgrid from "./bottomgrid";
-import { useState } from "react";
 export default function Rightpanel() {
+   const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    navigate("/", { replace: true });
+  };
   return (
     <div
       
@@ -106,7 +114,7 @@ export default function Rightpanel() {
                 />
               </span>
             </button>
-            <div
+            {/* <div
               className="
                 flex
                 w-8.75 h-8.75
@@ -116,7 +124,47 @@ export default function Rightpanel() {
               "
             >
               <img src="../src/assets/avatar_img.png" alt="" />
-            </div>
+            </div> */}
+              <div
+    onClick={() => setOpen(!open)}
+    className="
+      flex
+      w-8.75 h-8.75
+      bg-white
+      rounded-[7px] border border-[#cccccc]
+      justify-center items-center
+      cursor-pointer
+      relative
+    "
+  >
+    <img src="../src/assets/avatar_img.png" alt="" />
+  </div>
+
+  {open && (
+    <div
+      className="
+        absolute
+        right-4
+        top-16
+        w-32
+        bg-white
+        border
+        rounded-md
+        shadow-md
+        z-50
+      "
+    >
+      <button
+        onClick={handleLogout}
+        className="
+          w-full text-left px-4 py-2
+          hover:bg-gray-100 text-sm
+        "
+      >
+        Logout
+      </button>
+    </div>
+  )}
           </div>
         </header>
         </div>
