@@ -48,8 +48,8 @@ export default function LoginFormworked() {
       if (isOrgPresent) navigate("/dashboard");
       else if (isAdmin) navigate("/orgRegister");
       else navigate("/dashboard");
-      //imp
       
+      //imp
       // if (isOrgPresent) {
       //   window.location.href = `http://hrmsnap.com/dashboard?token=${result.token}`;
       // } else if (isAdmin) {
